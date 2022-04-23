@@ -4,14 +4,14 @@ M = Matrix([[-λ, 1], [r, 0]])
 N = M.LLL()
 matrix = ~N
 
-def scalar_decomposition(n, matrix):
+def scalar_decomposition(n):
     # decompose n = n1 + λ * n2 mod r
-    β = vector([n,0]) * matrix
-    b = vector([int(β[0]), int(β[1])]) * r
-    return n-b[0],-b[1]
+    beta = vector([n,0]) * matrix
+    b = vector([floor(beta[0]), floor(beta[1])]) * N
+    return n-b[0], -b[1]
 
 # test vector
-k1, k2 = scalar_decomposition(n1, matrix)
+k1, k2 = scalar_decomposition(n1)
 assert (k1 + λ * k2) % r == n1
 # print_le_hex(n1, 'n1 = ')
 # print_le_hex(λ, 'λ = ')

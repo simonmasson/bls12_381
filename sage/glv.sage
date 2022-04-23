@@ -2,7 +2,7 @@
 
 def glv(n, P):
     psi_P = endo(P)
-    k1, k2 = scalar_decomposition(n, matrix)
+    k1, k2 = scalar_decomposition(n)
     return multi_double_and_add(k1,P,k2,psi_P)
 
 glv_n1_G1 = glv(n1, G1)
@@ -18,7 +18,7 @@ t2 = cputime()
 for i in range(200):
     Q = n1*P
 t2 = cputime(t2)
-print("{:.0f}% improvment".format((t1-t2)*100/t2))
+print("{:.0f}% improvment".format((t2-t1)*100/t2))
 # print_le_hex(n1, 'n1 = ')
 # print_le_hex(G1[0], 'g1_x = ')
 # print_le_hex(G1[1], 'g1_y = ')
