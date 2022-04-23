@@ -1,8 +1,10 @@
 # DOUBLE AND ADD ALGORITHM
 
 def double_and_add(n, P):
+    if n < 0:
+        n = -n
+        P = -P
     res = E(0)
-    # maybe skip the zeros
     for b in n.bits()[::-1]: 
         res = 2*res
         if b == 1:
