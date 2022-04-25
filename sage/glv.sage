@@ -19,8 +19,3 @@ for i in range(200):
     Q = n1*P
 t2 = cputime(t2)
 print("{:.0f}% improvment".format((t2-t1)*100/t2))
-# print_le_hex(n1, 'n1 = ')
-# print_le_hex(G1[0], 'g1_x = ')
-# print_le_hex(G1[1], 'g1_y = ')
-# print_le_hex(glv_n1_G1[0], 'glv_n1_g1_x = ')
-# print_le_hex(glv_n1_G1[1], 'glv_n1_g1_y = ')

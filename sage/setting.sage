@@ -36,3 +36,4 @@ LY = [
         0x0bbc_3efc_5008_a26a,
 ]
 G1 = E(u64ToInt(LX)/power_of_two, u64ToInt(LY) / power_of_two)
+λ = ZZ((X**3-1).roots()[1][0])

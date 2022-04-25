@@ -30,11 +30,3 @@ def multi_double_and_add(n1,P1, n2, P2):
 # test vectors
 n1_G1_n2_P = n1*G1 + n2*P
 assert n1_G1_n2_P  == multi_double_and_add(n1,G1,n2,P)
-# print_le_hex(n1, 'n1 = ')
-# print_le_hex(G1[0], 'g1_x = ')
-# print_le_hex(G1[1], 'g1_y = ')
-# print_le_hex(n2, 'n2 = ')
-# print_le_hex(P[0], 'p_x = ')
-# print_le_hex(P[1], 'p_y = ')
-# print_le_hex(n1_G1_n2_P[0], 'n1_G1_n2_p_x = ')
-# print_le_hex(n1_G1_n2_P[1], 'n1_G1_n2_p_y = ')
