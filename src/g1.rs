@@ -1694,3 +1694,74 @@ fn test_zeroize() {
     a.zeroize();
     assert_eq!(&a, &G1Uncompressed::default());
 }
+
+// file generated automatically
+#[test]
+fn test_scalar_decomposition() {
+let lambda = Scalar::from_raw([
+	0xffffffff,0xac45a4010001a402,0x0,0x0,
+	]);
+let n = Scalar::from_raw([
+	0x6d65d6a3c076c836,0x3d712274e642de82,0xac7efc9f6f3bf46,0x5d07f4d159d1f306,
+	]);
+let n1 = -Scalar::from_raw([
+	0x8d6248510dd3b4ab,0x1405565d2ebf483f,0x0,0x0,
+	]);
+let n2 = Scalar::from_raw([
+	0x36ed642a31b5831f,0x8a3f07d550751fa6,0x0,0x0,
+	]);
+assert_eq!(n, n1+lambda*n2);
+}
+
+#[test]
+fn test_psi() {
+let p = G1Affine {
+	x: Fp::from_raw_unchecked([
+		0xc383e7a5e3a4b43d,0x8b9b140510ed2548,0x5e464049f62bca81,0x5cc9c8dbc1f890e8,0x71ea88a8901cbeba,0x9ecfc7ce23b66f7,
+	]),
+	y: Fp::from_raw_unchecked([
+		0x9266bfb1a0492ca3,0x5d2de4d0412206e1,0x6b55e0a161595135,0xf7030a1efb344f3d,0xfb2ea18bcb3bdf00,0x17e147d08f9bd9ad,
+	]),
+	infinity: Choice::from(0)
+};
+let lambda = Scalar::from_raw([
+	0xffffffff,0xac45a4010001a402,0x0,0x0,
+	]);
+let psi_p = G1Affine {
+	x: Fp::from_raw_unchecked([
+		0x90bc3ab00b955b4b,0xbef7de7dd3a53934,0x81d37d8a37530722,0x4633feedc7b3d926,0x73f61ef8ee5621ad,0x15481fa0f2597f69,
+	]),
+	y: Fp::from_raw_unchecked([
+		0x9266bfb1a0492ca3,0x5d2de4d0412206e1,0x6b55e0a161595135,0xf7030a1efb344f3d,0xfb2ea18bcb3bdf00,0x17e147d08f9bd9ad,
+	]),
+	infinity: Choice::from(0)
+};
+assert_eq!(psi_p, p.mul(lambda).into());
+}
+
+#[test]
+fn test_scalar_mul() {
+let p = G1Affine {
+	x: Fp::from_raw_unchecked([
+		0xc383e7a5e3a4b43d,0x8b9b140510ed2548,0x5e464049f62bca81,0x5cc9c8dbc1f890e8,0x71ea88a8901cbeba,0x9ecfc7ce23b66f7,
+	]),
+	y: Fp::from_raw_unchecked([
+		0x9266bfb1a0492ca3,0x5d2de4d0412206e1,0x6b55e0a161595135,0xf7030a1efb344f3d,0xfb2ea18bcb3bdf00,0x17e147d08f9bd9ad,
+	]),
+	infinity: Choice::from(0)
+};
+let n = Scalar::from_raw([
+	0x6d65d6a3c076c836,0x3d712274e642de82,0xac7efc9f6f3bf46,0x5d07f4d159d1f306,
+	]);
+let n_p = G1Affine {
+	x: Fp::from_raw_unchecked([
+		0x5f83460e6247c1f2,0x7b1802dd33409fd6,0xe7dd05808527c22d,0xc00e9c674cc4ff7b,0x3055ace432d84298,0x697078bcc204bbd,
+	]),
+	y: Fp::from_raw_unchecked([
+		0x421c87eafc90c066,0x9245e94fa76673d8,0x3b3bac8f5231cec6,0xc614b9082e9a1863,0xf8a8952bd90d0c7,0x7d72925ecac3e06,
+	]),
+	infinity: Choice::from(0)
+};
+assert_eq!(n_p, p.mul(n).into());
+}
+
